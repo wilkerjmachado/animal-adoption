@@ -1,17 +1,15 @@
-package com.animals.challenge.model;
+package com.animals.challenge.integration.dto;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
-@Builder
-public class AnimalType extends BaseEntity{
-
-    private String name;
+public class ResponseImageDto {
+    private String id;
+    private String url;
 }
