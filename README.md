@@ -9,11 +9,14 @@
    3.3. [Running the unit tests](#running-the-tests) <br>
    3.4. [Running locally Gradle](#running-locally-with-gradle) <br>
    3.5. [Running with Docker](#running-with-docker) <br>
+   3.6. [Swagger](#swagger) <br>
 4. [Requests example](#requests-example) <br>
+5. [Access](#access-heroku) <br>
+6. [Author](#author) 
 
 
-## Purpose of Service
-API for animal adoption.
+## Purpose of API
+API for animal adoption. https://animal-adoption.herokuapp.com/api/swagger-ui/index.html
 
 ## Project directory structure
 
@@ -54,7 +57,7 @@ README.md
 - Gradle 7.6.1
 - Docker
 - H2
-- flyway
+- Flyway
 
 ## Running the tests
 
@@ -76,33 +79,40 @@ docker build -t wilkerjmachado/animal-adoption .
 docker run -p 8080:8080 wilkerjmachado/animal-adoption
 ```
 
-# Swagger
-http://localhost:8080/api/swagger-ui/index.html
+## Swagger
+http://localhost:8080/api/swagger-ui/index.html </br>
+https://animal-adoption.herokuapp.com/api/swagger-ui/index.html
 
 ## Requests example
 
 ### Index partners' animals
 
 ```
-POST http://localhost:8080/api/animal/integration/index
+curl --location --request POST 'http://localhost:8080/api/animal/integration/index'
 ```
 
 ### Pageable list
 ```
-POST http://localhost:8080/api/animal/pageable?page=0&size=10&term=aby
-
-{
-  "status": "ADOPTED",
-  "category": "CAT",
-  "created_at": "2023-03-26"
-}
+curl --location --request POST 'http://localhost:8080/api/animal/pageable?page=0&size=10&term=aby' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "status": "AVAILABLE",
+  "category": "CAT"
+}'
 ```
 
 ### Update
 ```
-PATCH http://localhost:8080/api/animal/1
-
-{
-  "status": "ADOPTED"
-}
+curl --location --request PATCH 'http://localhost:8080/api/animal/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "status": "AVAILABLE"
+}'
 ```
+
+#Access (Heroku)
+* Swagger - https://animal-adoption.herokuapp.com/api/swagger-ui/index.html
+* API - https://animal-adoption.herokuapp.com/api
+
+## Author
+[Wilker de Jesus Machado](mailto:wilkerjmachado@gmail.com)
