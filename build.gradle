@@ -41,6 +41,13 @@ dependencyManagement {
 	}
 }
 
+jar {
+	enabled = false
+	manifest {
+		attributes 'Main-Class': 'com.animals.challenge.ChallengeApplication'
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
