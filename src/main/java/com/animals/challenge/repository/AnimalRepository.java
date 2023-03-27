@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AnimalRepository extends BaseRepository<Animal> {
 
+    boolean existsByName(String name);
 }

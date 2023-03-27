@@ -12,4 +12,4 @@ RUN gradle clean build
 FROM eclipse-temurin:17-jdk-jammy
 COPY --from=build /app/build/libs/*.jar /usr/local/lib/animal-adoption.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/animal-adoption.jar"]
+ENTRYPOINT ["java","-jar", "-Dspring.profiles.active=prod","/usr/local/lib/animal-adoption.jar"]

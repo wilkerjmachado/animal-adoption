@@ -38,6 +38,11 @@ src
 | | ├──service
 ├──test
 | ├──java
+| | ├──api
+| | ├──integration
+| | | ├──config
+| | | ├──mocks
+| | ├──service
 .gitignore
 Dockerfile
 build.gradle
@@ -110,7 +115,7 @@ curl --location --request PATCH 'http://localhost:8080/api/animal/1' \
 }'
 ```
 
-#Access (Heroku)
+## Access (Heroku)
 * Swagger - https://animal-adoption.herokuapp.com/api/swagger-ui/index.html
 * API - https://animal-adoption.herokuapp.com/api
 

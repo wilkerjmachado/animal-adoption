@@ -6,7 +6,6 @@ import com.animals.challenge.model.Animal;
 import com.animals.challenge.service.AnimalService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +28,7 @@ public class AnimalApi extends BaseApi<Animal, AnimalDto, AnimalService> {
 
         this.integrationService.index();
 
-        return ResponseEntity.ok(HttpStatus.CREATED);
+        return ResponseEntity.ok().build();
     }
 
 }

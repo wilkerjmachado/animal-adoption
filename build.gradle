@@ -33,6 +33,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "com.github.tomakehurst:wiremock-jre8-standalone:2.35.0"
 }
 
 dependencyManagement {
@@ -46,6 +47,10 @@ jar {
 	manifest {
 		attributes 'Main-Class': 'com.animals.challenge.ChallengeApplication'
 	}
+}
+
+bootRun {
+	args = ["--spring.profiles.active=prod"]
 }
 
 tasks.named('test') {
